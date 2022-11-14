@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_1"
+        tools:context=".FirstFragment">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:textColor="#FA71CD"
+            android:text="@string/login"
+            android:background="@drawable/custombutton_borders"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="#bcffffff"
+            android:src="@drawable/img_logo"
+            app:layout_constraintBottom_toTopOf="@+id/radio_Group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#bcffffff"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/homeazy_real_estate"
+            android:textColor="#86B54595"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/radio_Group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <RadioGroup
+            android:id="@+id/radio_Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:singleSelection="true">
+
+
+            <RadioButton
+                android:id="@+id/buy_chip"
+                style="@style/CustomChipStyle"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Αγορά" />
+
+            <RadioButton
+                android:id="@+id/rent_chip"
+                style="@style/CustomChipStyle"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ενοικίαση" />
+        </RadioGroup>
+
+
+        <!--        <AutoCompleteTextView-->
+        <!--            android:id="@+id/searchView"-->
+        <!--            android:layout_width="296dp"-->
+        <!--            android:layout_height="38dp"-->
+        <!--            android:hint="Select city"-->
+        <!--            android:background="@color/white"-->
+
+        <!--            android:iconifiedByDefault="false"-->
+
+        <!--            />-->
+
+        <Spinner
+            android:id="@+id/searchView"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_find"
+            android:layout_width="133dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custombuttons"
+            android:outlineSpotShadowColor="@color/white"
+            android:text="ΒΡΕΣ ΤΟ!"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_layout" />
+
+        <ImageButton
+            android:id="@+id/btn_chat"
+            android:layout_width="150dp"
+            android:layout_height="160dp"
+            android:background="@drawable/button_chat"
+            android:outlineSpotShadowColor="@color/white"
+            android:src="@drawable/ic_baseline_textsms_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintVertical_bias="0.872" />
+
+        <LinearLayout
+            android:id="@+id/price_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/min_layout"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:hint="$ Ελάχιστη"
+                android:textColorHint="#9A9999"
+                app:hintTextColor="#A8A8A8">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/min_rent_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColorHint="#616161"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="3dp"
+                android:hint="$ Μέγιστη"
+                android:textColorHint="#9A9999"
+                app:hintTextColor="#979797">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/max_rent_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColorHint="#616161"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

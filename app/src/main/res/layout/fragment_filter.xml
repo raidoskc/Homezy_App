@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+    <data>
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        android:background="@drawable/background_1"
+        >
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="30dp"
+            android:text="Επιλέξτε Φίλτρα"
+            android:textColor="#FF5722"
+            android:textSize="25sp" />
+
+
+        <RadioGroup
+            android:id="@+id/radio_Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:singleSelection="true"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
+            <RadioButton
+                android:id="@+id/buy_chip"
+                style="@style/CustomChipStyle"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Αγορά" />
+
+            <RadioButton
+                android:id="@+id/rent_chip"
+                style="@style/CustomChipStyle"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ενοικίαση" />
+        </RadioGroup>
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#77AAAAAA"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Επιλογή Τετραγωνικών:"
+            android:textColor="#FF5722"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:hint="Από.."
+                android:textColorHint="#9A9999"
+                app:hintTextColor="#A8A8A8">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/minArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColorHint="#616161"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:hint="Έως.."
+                android:textColorHint="#9A9999"
+                app:hintTextColor="#979797"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/min_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/maxArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColorHint="#616161"
+                    tools:ignore="TouchTargetSizeCheck"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Εισάγετε Τιμής:"
+            android:background="#77AAAAAA"
+            android:gravity="center_horizontal"
+            android:textColor="#FF5722"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="100dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:hint="$ Από.."
+                android:textColorHint="#9A9999"
+                app:hintTextColor="#A8A8A8">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/minRentEditext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColorHint="#616161"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:hint="$ Έως.."
+                android:textColorHint="#9A9999"
+                app:hintTextColor="#979797"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/min_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/maxPriceLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColorHint="#616161"
+                    tools:ignore="TouchTargetSizeCheck"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            >
+
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_find_last"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custombuttons"
+                android:textColor="@color/white"
+                android:text="ΒΡΕΣ ΤΟ!" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</layout>
