@@ -37,15 +37,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
-            app:boxBackgroundColor="#F8E9FD"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
             android:layout_marginTop="50dp"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/reg_username"
-                android:background="@color/white"
                 android:layout_width="match_parent"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -55,6 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
             app:boxBackgroundColor="#F8E9FD"
             android:layout_marginTop="10dp"
             android:layout_marginStart="40dp"
@@ -63,6 +69,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/reg_password"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"/>
@@ -73,7 +81,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
-            app:boxBackgroundColor="#F8E9FD"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:background="@color/white"
             android:layout_marginTop="10dp"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp">
@@ -82,6 +92,8 @@
                 android:id="@+id/reg_cnf_password"
                 android:background="@color/white"
                 android:layout_width="match_parent"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"/>
 

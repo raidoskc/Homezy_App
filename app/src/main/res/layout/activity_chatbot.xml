@@ -41,8 +41,8 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@android:drawable/ic_media_play"
-      app:tint="#43A047"
+      app:srcCompat="@drawable/sendbuton"
+      app:tint="#A1179A"
         android:visibility="visible"
         />
 

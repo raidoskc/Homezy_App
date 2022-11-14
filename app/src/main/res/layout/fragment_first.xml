@@ -95,7 +95,10 @@
             android:id="@+id/searchView"
             android:layout_width="260dp"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:background="#252424"
+            android:text="Διάλεξε πόλη.."
+            android:textColor="#111111"
+            android:shadowColor="@color/black"
             style="@style/Widget.AppCompat.DropDownItem.Spinner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,15 +121,15 @@
 
         <ImageButton
             android:id="@+id/btn_chat"
-            android:layout_width="150dp"
-            android:layout_height="160dp"
+            android:layout_width="64dp"
+            android:layout_height="67dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/button_chat"
             android:outlineSpotShadowColor="@color/white"
-            android:src="@drawable/ic_baseline_textsms_24"
+            android:src="@drawable/chat"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintVertical_bias="0.872" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <LinearLayout
             android:id="@+id/price_layout"
