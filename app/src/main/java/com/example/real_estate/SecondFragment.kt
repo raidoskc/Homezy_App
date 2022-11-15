@@ -18,7 +18,10 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.example.real_estate.databinding.FragmentSecondBinding
+import kotlinx.android.synthetic.main.fragment_filter.*
+import kotlinx.android.synthetic.main.fragment_second.*
 import kotlinx.android.synthetic.main.fragment_second.view.*
+import org.json.JSONArray
 import java.text.ParsePosition
 
 
@@ -49,6 +52,7 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         val minArea = secondFragmentArgs.minArea
         val maxArea = secondFragmentArgs.maxArea
 
+        val fragmentCall = secondFragmentArgs.fragmentCall
 
 
         Log.d("data", "test params: $buyOrRent - $city - $minRent - $maxRent")
@@ -57,14 +61,14 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         val city2 = secondFragmentArgs.city2
         val minRent2 = secondFragmentArgs.minRent2
         val maxRent2 = secondFragmentArgs.maxRent2
-        if (buyOrRent2 != ""){
-            Log.e("this is a chat demo 2", city2 + " " + minRent2 + " " + maxRent2 + " " + buyOrRent2)
-            getMyData(buyOrRent2, city2, minRent2.toInt(), maxRent2.toInt(), "1".toInt(), "5000".toInt())
-        }else {
-            Log.e("this is a chat demo", city + " " + minRent + " " + maxRent + " " + buyOrRent + " " + minArea + "" + maxArea)
-            getMyData(buyOrRent, city, minRent.toInt(), maxRent.toInt(),minArea.toInt(),maxArea.toInt())
-
-
+        if (fragmentCall == "Bot"){
+//            Log.e("this is a chat demo 2", city2 + " " + minRent2 + " " + maxRent2 + " " + buyOrRent2)
+            queryFirstFragmentToSecondAndBot(buyOrRent2,city2,minRent2.toInt(),maxRent2.toInt())
+        }else if (fragmentCall == "First") {
+//            Log.e("this is a chat demo", city + " " + minRent + " " + maxRent + " " + buyOrRent + " " + minArea + "" + maxArea)
+            queryFirstFragmentToSecondAndBot(buyOrRent,city,minRent.toInt(),maxRent.toInt())
+        } else {
+            filters(buyOrRent, city, minRent.toInt(), maxRent.toInt(),minArea.toInt(),maxArea.toInt())
         }
 
         recyclerView = binding.recyclerView
@@ -72,70 +76,57 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         homeList = ArrayList()
         recyclerView.setHasFixedSize(true)
 
+//        Dummy products for test
+//        homeList.add(Product("Large Apartment" , "Skg" , "240$" , "120sq.m." , R.drawable.apartment))
+//        homeList.add(Product("Hello" , "Hello" , "Hello" , "Hello" , R.drawable.apartment))
+//        homeList.add(Product("Hello" , "Hello" , "Hello" , "Hello" , R.drawable.apartment))
+//        homeList.add(Product("Hello" , "Hello" , "Hello" , "Hello" , R.drawable.apartment))
 
-        /*dummy
-        homeList.add(Product("Large Apartment" , "Skg" , "240$" , "120sq.m." , R.drawable.apartment))
-        homeList.add(Product("Hello" , "Hello" , "Hello" , "Hello" , R.drawable.apartment))
-        homeList.add(Product("Hello" , "Hello" , "Hello" , "Hello" , R.drawable.apartment))
-        homeList.add(Product("Hello" , "Hello" , "Hello" , "Hello" , R.drawable.apartment))
-*/
 
 
 
         //recyclerAdapter = RecyclerAdapter(homeList)
         //recyclerView.adapter = recyclerAdapter
 
-
-
         binding.filters.setOnClickListener{
            findNavController().navigate(SecondFragmentDirections.actionSecondFragmentToFilterFragment(city))
             //findNavController().navigate(R.id.filterFragment)
         }
-
-
-
-
     }
 
 
 
+     fun queryFirstFragmentToSecondAndBot(buyOrRent: String, city: String, minRent: Int, maxRent: Int){
+        val retrofitData = RetrofitClient.instance.searchFirstToSecond(city,buyOrRent,minRent,maxRent)
+        clickProduct(retrofitData)
+    }
+
+     fun filters(buyOrRent: String, city: String, minRent: Int, maxRent: Int, minArea: Int, maxArea: Int) {
+        val retrofitData = RetrofitClient.instance.filters(buyOrRent, city,minRent,maxRent,minArea,maxArea)
+        clickProduct(retrofitData)
+    }
 
 
-    private fun getMyData(buyOrRent: String, city: String, minRent: Int, maxRent: Int, minArea: Int, maxArea: Int) {
 
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build()
-            .create(ApiInterface::class.java)
-
-//        val retrofitData = retrofitBuilder.getData(buyOrRent, city, minRent, maxRent)
-        Log.e("dimitris", city + " " + minRent + " " + maxRent + " " + buyOrRent + " " + minArea + " " + maxArea)
-        val retrofitData = retrofitBuilder.getData(city,buyOrRent,minRent,maxRent,minArea,maxArea)
+    private fun clickProduct(retrofitData: Call<Test>){
 
         retrofitData.enqueue(object : Callback<Test> {
 
             override fun onResponse(call: Call<Test>, response: Response<Test>) {
                 binding.progressbar.visibility = View.GONE
-
                 response.body()!!.products?.forEach {
-                    Log.d("data", "test data: ${it.area} - ${it.region} - ${it.name}- ${it.price} - ${it.description} ")
-                    val responseBody = response.body()!!.products
+//                    Log.d("data", "test data: ${it.area} - ${it.region} - ${it.name}- ${it.price} - ${it.description} ")
+                    val responseBody:List<Product2>? = response.body()!!.products
                     recyclerAdapter = RecyclerAdapter(responseBody!!)
                     recyclerAdapter.notifyDataSetChanged()
                     recyclerView.adapter = recyclerAdapter
+                    //clickProduct(responseBody)
                     recyclerAdapter.setOnItemClickListener(object :
                         RecyclerAdapter.onItemClickListener {
-
-
                         override fun onItemClick(position: Int) {
-
-
-
                             var that = responseBody!![position]
                             findNavController().navigate(SecondFragmentDirections.actionSecondFragmentToDetailFragment(
                                 // Give ONLY Strings to Detail Fragment (Non-Null Errors)
-
                                 that.name.toString() ,
                                 that.id.toString() ,
                                 that.region.toString(),
@@ -145,19 +136,18 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
                                 that.description.toString()
                             ))
                         }
-
-
                     })
 
                 }
             }
-
             override fun onFailure(call: Call<Test>, t: Throwable) {
                 Toast.makeText(requireContext(), "Error fetching data", Toast.LENGTH_SHORT).show()
             }
         })
-    }}
 
+
+    }
+}
 
 
 

@@ -24,7 +24,7 @@ class FilterFragment : Fragment(R.layout.fragment_filter) {
     private val filtersFragmentArgs: FilterFragmentArgs by navArgs()
 
 
-    //private val city = filtersFragmentArgs.cityfilter
+    //private val city = filtersFragmentArgs.city
     private var maxArea: String = "1000000000000"
     private var minArea: String = "1"
     private var minRent: String = "0"
@@ -53,7 +53,7 @@ class FilterFragment : Fragment(R.layout.fragment_filter) {
             } else{
                 "buy"
             }
-            val city = filtersFragmentArgs.city
+            var city = filtersFragmentArgs.city
 
             var minArea  = binding.minArea.text.toString()
             var maxArea = binding.maxArea.text.toString()
@@ -78,7 +78,7 @@ class FilterFragment : Fragment(R.layout.fragment_filter) {
             }
 
 
-            findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSecondFragment(buyOrRent,city,minRent,maxRent,maxArea,minArea, "", "", "", ""))
+            findNavController().navigate(FilterFragmentDirections.actionFilterFragmentToSecondFragment(buyOrRent,city,minRent,maxRent,maxArea,minArea, "", "", "", "","Filter"))
         }
 
 

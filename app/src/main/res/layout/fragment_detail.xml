@@ -12,22 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="#1B191B"
 
         >
 
         <ImageView
             android:id="@+id/detailPhoto"
-            android:layout_width="match_parent"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@color/white"
             android:scaleType="fitXY"/>
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black" />
+
 
 
 
@@ -45,18 +47,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
                 android:id="@+id/detailTitle"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_marginTop="8dp"
 
                 />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/black"
-                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,6 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/detailRegion"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
 
                     />
@@ -93,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/detailPrice"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
 
                     />
@@ -118,22 +120,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
+                    android:textColor="@color/white"
                     android:id="@+id/detailArea"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
                     android:text="τ.Μέτρα"/>
 
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"
-                android:layout_marginTop="10dp"
+                android:background="@color/grey"
                 />
 
 
@@ -148,8 +153,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:textSize="20sp"
                 android:id="@+id/detailDesc"
-                android:textColor="@color/black"
+                android:textColor="@color/grey"
                 />
 
         </ScrollView>

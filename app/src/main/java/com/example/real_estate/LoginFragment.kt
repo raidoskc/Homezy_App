@@ -68,10 +68,9 @@ class LoginFragment : Fragment() {
 
                 override fun onResponse(call: Call<UserLogin>, response: Response<UserLogin>) {
                     Toast.makeText(context, response.body()?.message, Toast.LENGTH_LONG).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_firstFragment)
+                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFirstFragment())
 
                 }
-
             })
     }
 

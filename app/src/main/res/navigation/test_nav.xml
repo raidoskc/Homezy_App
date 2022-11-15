@@ -48,11 +48,13 @@
 
         <argument
             android:name="maxArea"
-            app:argType="string" />
+            app:argType="string"
+            />
 
         <argument
             android:name="minArea"
-            app:argType="string" />
+            app:argType="string"
+            />
 
         <argument
             android:name="buyOrrent2"
@@ -68,6 +70,10 @@
 
         <argument
             android:name="maxRent2"
+            app:argType="string" />
+
+        <argument
+            android:name="fragmentCall"
             app:argType="string" />
 
 
