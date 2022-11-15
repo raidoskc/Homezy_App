@@ -60,6 +60,7 @@ class FirstFragment : Fragment(R.layout.fragment_first), AdapterView.OnItemSelec
                 Chatbot_activity::class.java
             )
             startActivity(intent)
+            activity?.finish()
         }
 
         binding.btnFind.setOnClickListener {

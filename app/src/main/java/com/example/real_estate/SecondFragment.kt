@@ -88,6 +88,10 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         //recyclerAdapter = RecyclerAdapter(homeList)
         //recyclerView.adapter = recyclerAdapter
 
+        binding.btnUploadSecond.setOnClickListener(){
+            findNavController().navigate(SecondFragmentDirections.actionSecondFragmentToNewProductFragment())
+        }
+
         binding.filters.setOnClickListener{
            findNavController().navigate(SecondFragmentDirections.actionSecondFragmentToFilterFragment(city))
             //findNavController().navigate(R.id.filterFragment)

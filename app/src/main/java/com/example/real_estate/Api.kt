@@ -19,6 +19,21 @@ interface Api {
         @Field("password") password:  String
     ): Call<UserLogin>
 
+    @FormUrlEncoded
+    @POST ("/Products")
+    fun uploadProduct(
+        @Field("Name") Name: String,
+        @Field("Sale") Sale: String,
+        @Field("Price") Price:  Int,
+        @Field("Area") Area:  Int,
+        @Field("Photo") Photo:  String,
+        @Field("Region") Region:  String,
+        @Field("ZipCode") ZipCode:  Int,
+        @Field("Roof") Roof:  Int,
+        @Field("Bedrooms") Bedrooms:  Int,
+        @Field("Description") Description: String
+    ): Call<UploadResponse>
+
     @GET("Search/")
     fun filters(
         @Query("Sale") Sale: String,

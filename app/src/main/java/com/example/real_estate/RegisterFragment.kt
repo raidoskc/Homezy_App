@@ -71,7 +71,7 @@ class RegisterFragment : Fragment() {
                 }
 
                 override fun onResponse(call: Call<User>, response: Response<User>) {
-                    Toast.makeText(context, response.body()?.message + "with email: " + email, Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, response.body()?.message + " with email: " + email, Toast.LENGTH_LONG).show()
 
                 }
 

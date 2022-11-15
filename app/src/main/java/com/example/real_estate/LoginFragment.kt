@@ -63,15 +63,15 @@ class LoginFragment : Fragment() {
         RetrofitClient.instance.loginUser(email, password)
             .enqueue(object : Callback<UserLogin> {
                 override fun onFailure(call: Call<UserLogin>, t: Throwable) {
-                    Toast.makeText(context, "Wrong Email or Password", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "wrong", Toast.LENGTH_LONG).show()
                 }
 
                 override fun onResponse(call: Call<UserLogin>, response: Response<UserLogin>) {
                     Toast.makeText(context, response.body()?.message, Toast.LENGTH_LONG).show()
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFirstFragment())
-
+                    findNavController().popBackStack(R.id.firstFragment, false)
                 }
             })
+
     }
 
 
