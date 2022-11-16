@@ -67,7 +67,7 @@ class RegisterFragment : Fragment() {
         RetrofitClient.instance.createUser(email, password)
             .enqueue(object: Callback<User> {
                 override fun onFailure(call: Call<User>, t: Throwable) {
-                    Toast.makeText(context, "Internal Server Error", Toast.LENGTH_LONG).show()
+
                 }
 
                 override fun onResponse(call: Call<User>, response: Response<User>) {

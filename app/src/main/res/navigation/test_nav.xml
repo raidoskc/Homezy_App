@@ -88,8 +88,7 @@
         <action
             android:id="@+id/action_secondFragment_to_firstFragment"
             app:destination="@id/firstFragment"
-            app:popUpTo="@id/firstFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/tes_nav" />
         <action
             android:id="@+id/action_secondFragment_to_newProductFragment"
             app:destination="@id/newProductFragment" />

@@ -88,6 +88,16 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         //recyclerAdapter = RecyclerAdapter(homeList)
         //recyclerView.adapter = recyclerAdapter
 
+        binding.btnBack.setOnClickListener {
+            val intent = android.content.Intent(
+                this@SecondFragment.requireContext(),
+                MainActivity::class.java
+            )
+            startActivity(intent)
+            
+
+        }
+
         binding.btnUploadSecond.setOnClickListener(){
             findNavController().navigate(SecondFragmentDirections.actionSecondFragmentToNewProductFragment())
         }
